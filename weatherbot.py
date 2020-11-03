@@ -1,13 +1,14 @@
 import requests
 import telebot
 import json
+from pyrogram import Filters, InlineKeyboardMarkup, InlineKeyboardButton
 
 
 token = '1358591912:AAGGVF-v-umkGTiyTj4QcoZzBnVSH-H6Zfo'
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
-async def start(bot, m):
+async def start(message):
     await m.reply_text(
         text=f"Hello,\n\nWelcome to my weather bot. Enter your city name\n\nJoin my channel for getting news about me 👉 @AI_bot_projects",
         quote=True,
