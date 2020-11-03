@@ -1,8 +1,6 @@
 import requests
 import telebot
 import json
-from pyrogram import Filters, InlineKeyboardMarkup, InlineKeyboardButton
-
 
 token = '1358591912:AAGGVF-v-umkGTiyTj4QcoZzBnVSH-H6Zfo'
 bot = telebot.TeleBot(token)
