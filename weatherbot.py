@@ -8,23 +8,18 @@ token = '1358591912:AAGGVF-v-umkGTiyTj4QcoZzBnVSH-H6Zfo'
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
-async def start(message):
-    await m.reply_text(
-        text=f"Hello,\n\nWelcome to my weather bot. Enter your city name\n\nJoin my channel for getting news about me 👉 @AI_bot_projects",
-        quote=True,
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton('📌  Support Group', url='https://t.me/AI_BOT_HELP'),
-                    InlineKeyboardButton('🔖  Projects Channel', url='https://t.me/AI_bot_projects')
-                ],
-                [
-                    InlineKeyboardButton('💡  Youtube Channel', url='https://www.youtube.com/channel/UCyn07B5o6N67FkAEGmW5VfQ'),
-                    InlineKeyboardButton('👨  Master', url='https://t.me/pppppgame')
-                ]
-            ]
-        )
-    )    
+def start(message):
+    markup = types.InlineKeyboardMarkup()
+
+    markup.row(
+        types.InlineKeyboardButton(text="📌  Support Group", url='https://t.me/AI_BOT_HELP'),
+        types.InlineKeyboardButton(text='🔖  Projects Channel', url='https://t.me/AI_bot_projects'))
+   
+    markup.row(
+        types.InlineKeyboardButton(text='💡  Youtube Channel', url='https://www.youtube.com/channel/UCyn07B5o6N67FkAEGmW5VfQ'),
+        types.InlineKeyboardButton(text='👨  Master', url='https://t.me/pppppgame'))
+    
+    bot.send_message(message.chat.id, 'Hello,\n\nWelcome to my weather bot. Enter your city name\n\nJoin my channel for getting news about me 👉 @AI_bot_projects', reply_markup=markup)     
 
 
 @bot.message_handler(content_types=['text'])
