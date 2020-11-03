@@ -3,7 +3,7 @@ import telebot
 import json
 
 
-token = 1292013801:AAF9wIEBAjVVedaBRXp-SX8zvhjjhcvhgcghcgcgcrQ1E96tF2bM
+token = 1358591912:AAGGVF-v-umkGTiyTj4QcoZzBnVSH-H6Zfo
 bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=['start'])
@@ -17,7 +17,7 @@ def start(message):
 def weather(message):
     api_url = 'https://api.openweathermap.org/data/2.5/weather'
     city = message.text
-    r = requests.post(url = api_url, params = {'q' : city, 'APPID' : '7dcdhhhfgfhfhaee53699b80f434071b42c259178', 'units' : 'metric'})
+    r = requests.post(url = api_url, params = {'q' : city, 'APPID' : '7dcdaee53699b80f434071b42c259178', 'units' : 'metric'})
     if r.status_code == 200:
         
         response = json.loads(r.content)
